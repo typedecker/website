@@ -16,14 +16,11 @@ import TabItem from '@theme/TabItem';
 
 <img src="/img/docs/controls/animated-switcher/animated-switcher.gif" className="screenshot-20" />
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
 ```python reference
 https://github.com/flet-dev/examples/blob/example-polishing/python/controls/animation/animated-switcher.py
 ```
-  </TabItem>
-</Tabs>
+
 
 ## Properties
 

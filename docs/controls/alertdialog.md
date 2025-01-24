@@ -20,14 +20,10 @@ import TabItem from '@theme/TabItem';
 
 ### Basic and modal dialogs
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
 ```python reference
 https://github.com/flet-dev/examples/blob/example-polishing/python/controls/alert-dialog/dialogs.py
 ```
-  </TabItem>
-</Tabs>
 
 <img src="/img/docs/controls/alertdialog/alertdialog-with-custom-content.gif" className="screenshot-50" />
 
