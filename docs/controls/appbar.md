@@ -14,14 +14,11 @@ import TabItem from '@theme/TabItem';
 
 ### AppBar
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
 ```python reference
 https://github.com/flet-dev/examples/blob/example-polishing/python/controls/appbar/appbar-simple.py
 ```
-  </TabItem>
-</Tabs>
+
 
 <img src="/img/docs/controls/app-bar/app-bar.gif" className="screenshot-40"/>
 

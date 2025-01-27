@@ -25,8 +25,6 @@ import TabItem from '@theme/TabItem';
 
 ### Autoplay audio
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
 :::note
 Autoplay works in desktop, mobile apps and Safari browser, but doesn't work in Chrome/Edge.
@@ -35,8 +33,6 @@ Autoplay works in desktop, mobile apps and Safari browser, but doesn't work in C
 ```python reference
 https://github.com/flet-dev/examples/blob/example-polishing/python/controls/audio/audio-autoplay.py
 ```
-  </TabItem>
-</Tabs>
 
 ### Audio with playback controls
 
