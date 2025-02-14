@@ -202,11 +202,15 @@ Defaults to `8`.
 
 ### `enable_filter`
 
-TBD
+Determine if the menu list can be filtered by the text input. Defaults to false.
+
+If set to true, dropdown menu will show a filtered list. The filtered list will contain items that match the text provided by the input field, with a case-insensitive comparison.
 
 ### `enable_search`
 
-TBD
+Determine if the first item that matches the text input can be highlighted.
+
+Defaults to true as the search function could be commonly used.
 
 ### `error_style`
 
@@ -266,7 +270,9 @@ The [`TextStyle`](/docs/reference/types/textstyle) to use for `label`.
 
 ### `leading_icon`
 
-TBD
+An optional Icon at the front of the text input field inside the decoration box (previously, [`prefix_icon`](#prefix_icon)).
+
+Defaults to null. If this is not null, the menu items will have extra paddings to be aligned with the text in the text field.
 
 ### `max_menu_height`
 
@@ -275,6 +281,10 @@ The maximum height of the dropdown menu. If this is null, the menu will display 
 ### `options`
 
 A list of `DropdownOption` controls representing items in this dropdown.
+
+### `selected_trailing_icon`
+
+TBD
 
 ### `text_align`
 
@@ -296,7 +306,9 @@ TBD
 
 ### `width`
 
-TBD
+Determine the width of the Dropdown.
+
+If this is null, the width of the Dropdown will be the same as the width of the widest menu item plus the width of the leading/trailing icon.
 
 ### `value`
 
@@ -442,6 +454,8 @@ The `prefix` appears after the `prefix_icon`, if both are specified.
 ### ~~`prefix_icon`~~
 
 An icon that appears before the `prefix` or `prefix_text` and before the editable part of the text field, within the decoration's container.
+
+Use [`leading_icon`](#leading_icon) instead.
 
 ### ~~`prefix_style`~~
 
