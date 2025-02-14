@@ -7,6 +7,8 @@ Dropdown is used to help people make a choice from a menu and put the selected i
 
 :::info
 Since version 0.27.0, Flet uses [DropdownMenu](https://api.flutter.dev/flutter/material/DropdownMenu) flutter widget for Dropdown control, which is a Material 3 version of previously used DropdownButton.
+
+Some properties of previous Dropdown implementation are not available in the new version and were "stubbed" - they will not break your program but don't do anything. See the list of deprecated properties [here](#deprecated-dropdownoption-properties-and-events).
 :::
 
 import Tabs from '@theme/Tabs';
@@ -284,7 +286,9 @@ A list of `DropdownOption` controls representing items in this dropdown.
 
 ### `selected_trailing_icon`
 
-TBD
+An optional icon at the end of the text field to indicate that the text field is pressed.
+
+Defaults to an Icon with `ft.Icons.ARROR_DROP_UP`.
 
 ### `text_align`
 
@@ -302,7 +306,9 @@ The [`TextStyle`](/docs/reference/types/textstyle) to use for text in input text
 
 ### `trailing_icon`
 
-TBD
+An optional icon at the end of the text field (previously, [`select_icon`](#select_icon)).
+
+Defaults to an Icon with `ft.Icons.ARROR_DROP_DOWN`.
 
 ### `width`
 
@@ -478,6 +484,8 @@ Example with Control:
 icon=ft.Icon(ft.Icons.BOOKMARK)
 ```
 
+Use [`trailing_icon`](#trailing_icon) instead.
+
 ### ~~`select_icon_enabled_color`~~
 
 The color of any `Icon` descendant of `select_icon` if this button is enabled.
@@ -518,15 +526,9 @@ Optional text `suffix` to place on the line after the input.
 
 Fires when this dropdown is clicked.
 
-## `Option` properties
+## `DropdownOption` properties
 
 Represents an item in a dropdown. Either `key` or `text` must be specified, else an `AssertionError` will be raised.
-
-### `alignment`
-
-Defines the alignment of this option in it's container.
-
-Value is of type [`Alignment`](/docs/reference/types/alignment) and defaults to `alignment.center_left`.
 
 ### `content`
 
@@ -536,18 +538,38 @@ A `Control` to display in this option. If not specified, `text` will be used as 
 
 Option's key. If not specified `text` will be used as fallback.
 
+### `leading_icon`
+
+An optional icon to display before the content or text.
+
+### `style`
+
+Customizes this menu item's appearance. 
+
+The value is an instance of [`ButtonStyle`](/docs/reference/types/buttonstyle) class. 
+
 ### `text`
 
 Option's display text. If not specified `key` will be used as fallback.
 
-### `text_style`
+### `trailing_icon`
+
+An optional icon to display after the content or text.
+
+## Deprecated `DropdownOption` properties and events
+
+### ~~`alignment`~~
+
+Defines the alignment of this option in it's container.
+
+Value is of type [`Alignment`](/docs/reference/types/alignment) and defaults to `alignment.center_left`.
+
+### ~~`text_style`~~
 
 Defines the style of the `text`.
 
 Value is of type [`TextStyle`](/docs/reference/types/textstyle).
 
-## `Option` Events
-
-### `on_click`
+### ~~`on_click`~~
 
 Fires when this option is clicked.
