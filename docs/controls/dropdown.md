@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 [Live example](https://flet-controls-gallery.fly.dev/input/dropdown)
 
-### Basic dropdown
+### Dropdown with colors
 
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
@@ -27,91 +27,50 @@ import TabItem from '@theme/TabItem';
 import flet as ft
 
 def main(page: ft.Page):
-    def button_clicked(e):
-        t.value = f"Dropdown value is:  {dd.value}"
-        page.update()
+    colors = [
+        ft.Colors.RED,
+        ft.colors.BLUE,
+        ft.Colors.YELLOW,
+        ft.Colors.PURPLE,
+        ft.Colors.LIME,
+    ]
 
-    t = ft.Text()
-    b = ft.ElevatedButton(text="Submit", on_click=button_clicked)
-    dd = ft.Dropdown(
-        width=100,
-        options=[
-            ft.dropdown.Option("Red"),
-            ft.dropdown.Option("Green"),
-            ft.dropdown.Option("Blue"),
-        ],
-    )
-    page.add(dd, b, t)
+    def get_options():
+        options = []
+        for color in colors:
+            options.append(
+                ft.DropdownOption(
+                    key=color.value,
+                    content=ft.Text(
+                        value=color.value,
+                        color=color,
+                    ),
+                )
+            )
+        return options
 
-ft.app(main)
-```
-  </TabItem>
-</Tabs>
-
-<img src="/img/docs/controls/dropdown/basic-dropdown.gif" className="screenshot-30"/>
-
-### Dropdown with label and hint
-
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
-
-```python
-import flet as ft
-
-def main(page: ft.Page):
-    page.add(
-        ft.Dropdown(
-            label="Color",
-            hint_text="Choose your favourite color?",
-            options=[
-                ft.dropdown.Option("Red"),
-                ft.dropdown.Option("Green"),
-                ft.dropdown.Option("Blue"),
-            ],
-            autofocus=True,
-        )
-    )
-
-ft.app(main)
-```
-  </TabItem>
-</Tabs>
-
-<img src="/img/docs/controls/dropdown/dropdown-with-custom-content.gif" className="screenshot-30"/>
-
-### Dropdown with `on_change` event
-
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
-
-```python
-import flet as ft
-
-def main(page: ft.Page):
     def dropdown_changed(e):
-        t.value = f"Dropdown changed to {dd.value}"
+        e.control.color = e.control.value
         page.update()
 
-    t = ft.Text()
     dd = ft.Dropdown(
+        editable=True,
+        label="Color",
+        options=get_options(),
         on_change=dropdown_changed,
-        options=[
-            ft.dropdown.Option("Red"),
-            ft.dropdown.Option("Green"),
-            ft.dropdown.Option("Blue"),
-        ],
-        width=200,
     )
-    page.add(dd, t)
+
+    page.add(dd)
+
 
 ft.app(main)
 ```
   </TabItem>
 </Tabs>
 
-<img src="/img/docs/controls/dropdown/dropdown-with-change-event.gif" className="screenshot-30" />
+<img src="/img/docs/controls/dropdown/dropdown-with-colors.png" className="screenshot-20"/>
 
-### Change items in dropdown options
+### Dropdown with icons
 
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
@@ -120,37 +79,40 @@ ft.app(main)
 import flet as ft
 
 def main(page: ft.Page):
-    def find_option(option_name):
-        for option in d.options:
-            if option_name == option.key:
-                return option
-        return None
 
-    def add_clicked(e):
-        d.options.append(ft.dropdown.Option(option_textbox.value))
-        d.value = option_textbox.value
-        option_textbox.value = ""
-        page.update()
+    icons = [
+        {"name": "Smile", "icon_name": ft.Icons.SENTIMENT_SATISFIED_OUTLINED},
+        {"name": "Cloud", "icon_name": ft.Icons.CLOUD_OUTLINED},
+        {"name": "Brush", "icon_name": ft.Icons.BRUSH_OUTLINED},
+        {"name": "Heart", "icon_name": ft.Icons.FAVORITE},
+    ]
 
-    def delete_clicked(e):
-        option = find_option(d.value)
-        if option != None:
-            d.options.remove(option)
-            # d.value = None
-            page.update()
+    def get_options():
+        options = []
+        for icon in icons:
+            options.append(
+                ft.DropdownOption(key=icon["name"], leading_icon=icon["icon_name"])
+            )
+        return options
 
-    d = ft.Dropdown()
-    option_textbox = ft.TextField(hint_text="Enter item name")
-    add = ft.ElevatedButton("Add", on_click=add_clicked)
-    delete = ft.OutlinedButton("Delete selected", on_click=delete_clicked)
-    page.add(d, ft.Row(controls=[option_textbox, add, delete]))
+    dd = ft.Dropdown(
+        border=ft.InputBorder.UNDERLINE,
+        enable_filter=True,
+        editable=True,
+        leading_icon=ft.Icons.SEARCH,
+        label="Icon",
+        options=get_options(),
+    )
+
+    page.add(dd)
+
 
 ft.app(main)
 ```
   </TabItem>
 </Tabs>
 
-<img src="/img/docs/controls/dropdown/dropdown-with-add-and-delete.gif" className="screenshot-40"/>
+<img src="/img/docs/controls/dropdown/dropdown-with-icons.png" className="screenshot-20"/>
 
 ## `Dropdown` properties
 
@@ -208,11 +170,15 @@ Determine if the menu list can be filtered by the text input. Defaults to false.
 
 If set to true, dropdown menu will show a filtered list. The filtered list will contain items that match the text provided by the input field, with a case-insensitive comparison.
 
+<img src="/img/docs/controls/dropdown/dropdown-filter.gif" className="screenshot-20"/>
+
 ### `enable_search`
 
 Determine if the first item that matches the text input can be highlighted.
 
 Defaults to true as the search function could be commonly used.
+
+<img src="/img/docs/controls/dropdown/dropdown-search.gif" className="screenshot-20"/>
 
 ### `error_style`
 
