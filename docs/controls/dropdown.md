@@ -8,7 +8,7 @@ Dropdown is used to help people make a choice from a menu and put the selected i
 :::info
 Since version 0.27.0, Flet uses [DropdownMenu](https://api.flutter.dev/flutter/material/DropdownMenu) flutter widget for Dropdown control, which is a Material 3 version of previously used DropdownButton.
 
-Some properties of previous Dropdown implementation are not available in the new version and were "stubbed" - they will not break your program but don't do anything. See the list of deprecated properties [here](#deprecated-dropdownoption-properties-and-events).
+Some properties of previous Dropdown implementation are not available in the new version and were "stubbed" - they will not break your program but don't do anything. See the list of deprecated properties [here](#deprecated-dropdown-properties-and-events).
 :::
 
 import Tabs from '@theme/Tabs';
@@ -306,7 +306,7 @@ Fires when the selected item of this dropdown has changed.
 
 Fires when the control has received focus.
 
-## Discontinued `Dropdown` properties and events
+## Deprecated `Dropdown` properties and events
 
 ### ~~`alignment`~~
 
@@ -425,9 +425,13 @@ The `prefix` appears after the `prefix_icon`, if both are specified.
 
 ### ~~`prefix_icon`~~
 
+:::note
+Use [`leading_icon`](#leading_icon) instead.
+:::
+
 An icon that appears before the `prefix` or `prefix_text` and before the editable part of the text field, within the decoration's container.
 
-Use [`leading_icon`](#leading_icon) instead.
+
 
 ### ~~`prefix_style`~~
 
@@ -439,6 +443,10 @@ Optional text `prefix` to place on the line before the input.
 
 ### ~~`select_icon`~~
 
+:::note
+Use [`trailing_icon`](#trailing_icon) instead.
+:::
+
 The [name of the icon](/docs/reference/icons) or `Control` to use for the drop-down select button's icon. Defaults to an `Icon(ft.Icons.ARROW_DROP_DOWN)`.
 
 Example with icon name:
@@ -449,8 +457,6 @@ Example with Control:
 ```
 icon=ft.Icon(ft.Icons.BOOKMARK)
 ```
-
-Use [`trailing_icon`](#trailing_icon) instead.
 
 ### ~~`select_icon_enabled_color`~~
 
