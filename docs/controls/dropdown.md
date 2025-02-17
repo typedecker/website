@@ -6,9 +6,11 @@ sidebar_label: Dropdown
 Dropdown is used to help people make a choice from a menu and put the selected item into the text input field. It's also possible to filter the list based on the text input or search one item in the menu list.
 
 :::info
-Since version 0.27.0, Flet uses [DropdownMenu](https://api.flutter.dev/flutter/material/DropdownMenu) flutter widget for Dropdown control, which is a Material 3 version of previously used DropdownButton.
+Since version 0.27.0, Flet uses [DropdownMenu](https://api.flutter.dev/flutter/material/DropdownMenu) flutter widget for ['Dropdown'](/docs/controls/dropdown) control, which is a Material 3 version of previously used DropdownButton.
 
 Some properties of previous Dropdown implementation are not available in the new version and were "stubbed" - they will not break your program but don't do anything. See the list of deprecated properties [here](#deprecated-dropdown-properties-and-events).
+
+Previous version of Dropdown control is available as [`DropdownM2`](/docs/controls/dropdownm2) control and will be deprecated in Flet 0.30.0.
 :::
 
 import Tabs from '@theme/Tabs';
@@ -254,7 +256,7 @@ A list of `DropdownOption` controls representing items in this dropdown.
 
 An optional icon at the end of the text field to indicate that the text field is pressed.
 
-Defaults to an Icon with `ft.Icons.ARROR_DROP_UP`.
+Defaults to an Icon with `ft.Icons.ARROW_DROP_UP`.
 
 ### `text_align`
 
@@ -274,7 +276,7 @@ The [`TextStyle`](/docs/reference/types/textstyle) to use for text in input text
 
 An optional icon at the end of the text field (previously, [`select_icon`](#select_icon)).
 
-Defaults to an Icon with `ft.Icons.ARROR_DROP_DOWN`.
+Defaults to an Icon with `ft.Icons.ARROW_DROP_DOWN`.
 
 ### `width`
 
