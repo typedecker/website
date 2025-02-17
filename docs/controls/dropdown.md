@@ -6,7 +6,7 @@ sidebar_label: Dropdown
 Dropdown is used to help people make a choice from a menu and put the selected item into the text input field. It's also possible to filter the list based on the text input or search one item in the menu list.
 
 :::info
-Since version 0.27.0, Flet uses [DropdownMenu](https://api.flutter.dev/flutter/material/DropdownMenu) flutter widget for ['Dropdown'](/docs/controls/dropdown) control, which is a Material 3 version of previously used DropdownButton.
+Since version 0.27.0, Flet uses [DropdownMenu](https://api.flutter.dev/flutter/material/DropdownMenu) flutter widget for [Dropdown](/docs/controls/dropdown) control, which is a Material 3 version of previously used DropdownButton.
 
 Some properties of previous Dropdown implementation are not available in the new version and were "stubbed" - they will not break your program but don't do anything. See the list of deprecated properties [here](#deprecated-dropdown-properties-and-events).
 
