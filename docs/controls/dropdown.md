@@ -310,6 +310,10 @@ Fires when the control has received focus.
 
 ## Deprecated `Dropdown` properties and events
 
+The properties and events below are not available in Dropdown control since version 0.27.0. They were "stubbed" - using them will not break your program but they don't do anything.
+
+They are still available in previous version of Dropdown control [`DropdownM2`](/docs/controls/dropdownm2) which will be deprecated in 0.30.0.
+
 ### ~~`alignment`~~
 
 Defines how the `hint` or the selected item is positioned within this dropdown.
