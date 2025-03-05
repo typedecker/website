@@ -68,31 +68,23 @@ A list of Controls to display on the Page.
 
 For example, to add a new control to a page:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
+
 
 ```python
 page.controls.append(ft.Text("Hello!"))
 page.update()
 ```
 
-</TabItem>
-</Tabs>
 
 or to get the same result as above using [`page.add()`](#addcontrols) method
 
 To remove the top most control on the page:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
 ```python
 page.controls.pop()
 page.update()
 ```
-
-</TabItem>
-</Tabs>
 
 ### `dark_theme`
 
@@ -197,16 +189,13 @@ A list of `Control`s displayed as a stack on top of main page contents.
 
 A space between page contents and its edges. Default value is 10 pixels from each side. To set zero padding:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
+
 
 ```python
 page.padding = 0
 page.update()
 ```
 
-</TabItem>
-</Tabs>
 
 Value is of type [`Padding`](/docs/reference/types/padding).
 
@@ -226,31 +215,8 @@ def main(page: ft.Page):
 ```
 
 You can also set this property for testing purposes:
-```python
-import flet as ft
-
-
-def main(page):
-    def set_android(e):
-        page.platform = ft.PagePlatform.ANDROID
-        page.update()
-        print("New platform:", page.platform)
-
-    def set_ios(e):
-        page.platform = "ios"
-        page.update()
-        print("New platform:", page.platform)
-
-    page.add(
-        ft.Switch(label="Switch A", adaptive=True),
-        ft.ElevatedButton("Set Android", on_click=set_android),
-        ft.ElevatedButton("Set iOS", on_click=set_ios),
-    )
-
-    print("Default platform:", page.platform)
-
-
-ft.app(main)
+```python reference
+https://github.com/flet-dev/examples/blob/example-polishing/python/controls/layout/page/set-platform.py
 ```
 
 ### `platform_brightness`
@@ -407,35 +373,11 @@ Vertical spacing between controls on the Page. Default value is 10 virtual pixel
 
 A `Control` that will be displayed on top of Page contents. [`ProgressBar`](/docs/controls/progressbar) or [`ProgressRing`](/docs/controls/progressring) could be used as an indicator for some lengthy operation, for example:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
-```python
-from time import sleep
-import flet as ft
-
-
-def main(page: ft.Page):
-    progress_bar = ft.ProgressBar(visible=False)
-    page.overlay.append(progress_bar)
-
-    def button_click(e):
-        progress_bar.visible = True
-        e.control.disabled = True
-        page.update()
-        sleep(3)
-        progress_bar.visible = False
-        e.control.disabled = False
-        page.update()
-
-    page.add(ft.ElevatedButton("Do some lengthy task!", on_click=button_click))
-
-
-ft.app(main)
+```python reference
+https://github.com/flet-dev/examples/blob/example-polishing/python/controls/layout/page/splash-test.py
 ```
 
-</TabItem>
-</Tabs>
 
 **Deprecated in v0.23.0 and will be removed in v0.26.0. Use [`page.overlay.append(splash)`](#overlay) instead.**
 
@@ -459,16 +401,12 @@ Value is of type [`ThemeMode`](/docs/reference/types/thememode) and defaults to 
 
 A title of browser or native OS window, for example:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
+
 
 ```python
 page.title = "My awesome app"
 page.update()
 ```
-
-</TabItem>
-</Tabs>
 
 ### `url`
 
@@ -885,15 +823,12 @@ See [`Column.scroll_to()`](/docs/controls/column#scroll_tooffset-delta-key-durat
 
 Set clipboard data on a client side (user's web browser or a desktop), for example:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
 
 ```python
 page.set_clipboard("This value comes from Flet app")
 ```
 
-</TabItem>
-</Tabs>
+
 
 ### ~~`show_banner(banner: Banner)`~~
 
@@ -1044,8 +979,7 @@ Fires when brightness of app host platform has changed.
 
 Fires when a browser or native OS window containing Flet app is resized by a user, for example:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
+
 
 ```python
 def page_resize(e):
@@ -1054,8 +988,6 @@ def page_resize(e):
 page.on_resize = page_resize
 ```
 
-</TabItem>
-</Tabs>
 
 Event handler argument is of type [`WindowResizeEvent`](/docs/reference/types/windowresizeevent).
 
@@ -1065,8 +997,7 @@ Event handler argument is of type [`WindowResizeEvent`](/docs/reference/types/wi
 
 Fires when a browser or native OS window containing Flet app is resized by a user, for example:
 
-<Tabs groupId="language">
-  <TabItem value="python" label="Python" default>
+
 
 ```python
 def page_resized(e):
@@ -1077,8 +1008,6 @@ page.on_resized = page_resized
 
 Event handler argument is of type [`WindowResizeEvent`](/docs/reference/types/windowresizeevent).
 
-</TabItem>
-</Tabs>
 
 ### `on_route_change`
 
